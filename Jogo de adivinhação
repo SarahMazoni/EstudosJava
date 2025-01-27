@@ -1,0 +1,42 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Estudo {
+    public static void main(String[] args) {
+            Random random = new Random();
+            int numeroAleatorio = random.nextInt(101);
+            Scanner scanner = new Scanner(System.in);
+            int tentativas = 5;
+            boolean acertou = false;
+
+
+        System.out.println("Bem-vindo ao jogo de adivinhação!");
+        System.out.println("Tente adivinhar o número que estou pensando (entre 0 e 100).");
+        System.out.println("Você tem " + tentativas + " tentativas. Boa sorte!");
+
+
+        for (int i = 1; i <= tentativas; i++) {
+            System.out.print("Tentativa " + i + ": ");
+            int palpite = scanner.nextInt();
+
+            if (palpite == numeroAleatorio) {
+                System.out.println("Parabéns! Você acertou o número em " + i + " tentativa(s)!");
+                acertou = true;
+                break;
+            } else if (palpite < numeroAleatorio) {
+                System.out.println("O número é maior do que " + palpite + ".");
+            } else {
+                System.out.println("O número é menor do que " + palpite + ".");
+            }
+        }
+
+        if (!acertou) {
+            System.out.println("Que pena! Você não conseguiu adivinhar o número. O número era: " + numeroAleatorio);
+        }
+
+        System.out.println("Fim do jogo!");
+        scanner.close();
+    }
+}
+
+
